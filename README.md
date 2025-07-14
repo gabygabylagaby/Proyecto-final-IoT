@@ -85,6 +85,5 @@ mosquitto -v
 
 ## Capturas y Evidencias de Pruebas
 
-![6fa7230c1e84a2990971122c4435e7ec-xlarge](https://github.com/user-attachments/assets/dd952239-dd54-4498-a7c8-f1f4496db249)
 
 <img width="1200" height="1600" alt="image" src="https://github.com/user-attachments/assets/b4cb13a7-dabb-4594-a646-9d5e844d9aed" />
