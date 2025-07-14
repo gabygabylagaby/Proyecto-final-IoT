@@ -7,6 +7,7 @@ import {
   CardContent,
   Tabs,
   Tab,
+  Box,
 } from "@mui/material";
 import HistoryTable from "./components/HistoryTable";
 import { connectMultipleMqtt } from "./services/mqttService";
@@ -224,13 +225,22 @@ const App = () => {
         </Grid>
       </Grid>
 
-      <Tabs value={tab} onChange={handleTabChange} centered>
-        <Tab label="Distancia" />
-        <Tab label="Distancia2" />
-        <Tab label="Temperatura" />
-        <Tab label="Humedad" />
-        <Tab label="Humo" />
-      </Tabs>
+      <Box sx={{ width: "100%", overflow: "hidden" }}>
+        <Tabs
+          value={tab}
+          onChange={handleTabChange}
+          centered
+          variant="scrollable"
+          scrollButtons="auto"
+          aria-label="tabs de sensores"
+        >
+          <Tab label="Distancia" />
+          <Tab label="Distancia2" />
+          <Tab label="Temperatura" />
+          <Tab label="Humedad" />
+          <Tab label="Humo" />
+        </Tabs>
+      </Box>
 
       <Grid container spacing={2}>
         <Grid item xs={12} md={6}>
