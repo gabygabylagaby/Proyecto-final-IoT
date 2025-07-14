@@ -87,3 +87,5 @@ mosquitto -v
 
 
 <img width="1200" height="1600" alt="image" src="https://github.com/user-attachments/assets/b4cb13a7-dabb-4594-a646-9d5e844d9aed" />
+
+![WhatsApp Image 2025-07-14 at 11 46 33 AM](https://github.com/user-attachments/assets/d67879ff-fd2b-4387-a957-016b8ed12bbb)
