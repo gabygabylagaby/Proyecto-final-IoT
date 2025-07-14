@@ -2,12 +2,12 @@
 
 **Integrantes del grupo:**
 
-* Samuel Escalera
-* Diego Figueroa
-* Gabriela García
-* Leonardo Herrera
+* Samuel Escalera Herrera
+* Diego Figueroa Sevillano
+* Gabriela García Villalobos
+* Leonardo Herrera Rosales
 * Fabián Romero Claros
-* Santiago Caballero
+* Santiago Caballero Manzaneda
 
 ## Descripción General del Proyecto
 
