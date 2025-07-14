@@ -18,18 +18,19 @@ Este proyecto tiene como objetivo desarrollar un sistema de monitoreo en tiempo 
 ```
 Proyecto-IoT-MQTT/
 │
-├── Arduino/               # Código fuente del Arduino
+├── Arduino/              
 │   └── sensores.ino
 │
-├── Python/                # Comunicación serial
+├── Python/               
 │   └── python.py
 │
-├── Web/                   # Interfaz Web
+├── Web/                  
 │   ├── index.html
 │   ├── app.js
 │   └── style.css
 │
-└── README.md              # Este documento
+└── .gitignore             
+└── README.md
 ```
 
 ## Instalación y Configuración del Broker MQTT (Mosquitto)
@@ -39,7 +40,7 @@ Proyecto-IoT-MQTT/
 * Python 3.x
 * Mosquitto MQTT Broker
 * Arduino IDE
-* Navegador web o entorno para Python GUI (Tkinter/PyQt)
+* Navegador web
 
 ### En Linux:
 
@@ -69,13 +70,6 @@ mosquitto -v
 | **Web/Desktop**   | Se suscriben a los temas MQTT para visualizar datos en tiempo real          |
 | **Python Script** | Lee datos del puerto serial, los transforma y publica vía MQTT              |
 
-## Capturas y Evidencias de Pruebas
-
-```markdown
-![Captura](./capturas/interfaz_web.png)
-```
-
-
 ## Resultados Obtenidos
 
 * Se logró conectar los sensores al Arduino y generar datos (simulados o reales).
@@ -88,3 +82,9 @@ mosquitto -v
 * Integrar un sistema de alertas por umbral.
 * Controlar actuadores desde la interfaz.
 * Mejorar diseño responsivo de la interfaz Web.
+
+## Capturas y Evidencias de Pruebas
+
+![6fa7230c1e84a2990971122c4435e7ec-xlarge](https://github.com/user-attachments/assets/dd952239-dd54-4498-a7c8-f1f4496db249)
+
+<img width="1200" height="1600" alt="image" src="https://github.com/user-attachments/assets/b4cb13a7-dabb-4594-a646-9d5e844d9aed" />
