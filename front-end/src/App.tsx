@@ -39,10 +39,12 @@ ChartJS.register(LineElement, CategoryScale, LinearScale, PointElement);
  */
 const App = () => {
   const [distances, setDistances] = useState<number[]>([]);
+  const [distances2, setDistances2] = useState<number[]>([]);
   const [temperatures, setTemperatures] = useState<number[]>([]);
   const [humidities, setHumidities] = useState<number[]>([]);
   const [smokes, setSmokes] = useState<number[]>([]);
   const [currentDistance, setCurrentDistance] = useState<number>(0);
+  const [currentDistance2, setCurrentDistance2] = useState<number>(0);
   const [currentTemperature, setCurrentTemperature] = useState<number>(0);
   const [currentHumidity, setCurrentHumidity] = useState<number>(0);
   const [currentSmoke, setCurrentSmoke] = useState<number>(0);
@@ -52,6 +54,7 @@ const App = () => {
     const brokers = ["ws://172.20.25.151:9001"];
     const topics = [
       "sensores/distancia",
+      "sensores/distancia2",
       "sensores/temperatura",
       "sensores/humedad",
       "sensores/humo",
@@ -62,6 +65,11 @@ const App = () => {
         const distance = data.distancia;
         setCurrentDistance(distance);
         setDistances((prev) => [...prev.slice(-19), distance]);
+      }
+      if (topic === "sensores/distancia2") {
+        const distance = data["distancia2"];
+        setCurrentDistance2(distance);
+        setDistances2((prev) => [...prev.slice(-19), distance]);
       }
       if (topic === "sensores/temperatura") {
         const temperature = data.temperatura;
@@ -89,17 +97,19 @@ const App = () => {
 
   const getCurrentData = () => {
     if (tab === 0) return distances;
-    if (tab === 1) return temperatures;
-    if (tab === 2) return humidities;
-    if (tab === 3) return smokes;
+    if (tab === 1) return distances2;
+    if (tab === 2) return temperatures;
+    if (tab === 3) return humidities;
+    if (tab === 4) return smokes;
     return [];
   };
 
   const getLabel = () => {
     if (tab === 0) return "Distancia (cm)";
-    if (tab === 1) return "Temperatura (°C)";
-    if (tab === 2) return "Humedad (%)";
-    if (tab === 3) return "Humo (ppm)";
+    if (tab === 1) return "Distancia 2 (cm)";
+    if (tab === 2) return "Temperatura (°C)";
+    if (tab === 3) return "Humedad (%)";
+    if (tab === 4) return "Humo (ppm)";
     return "";
   };
 
@@ -108,7 +118,7 @@ const App = () => {
       <h2>Grupo 2</h2>
       <Grid container spacing={2} sx={{ mb: 2 }}>
         <Grid container spacing={2}>
-          <Grid item md={3} xs={6} display="flex">
+          <Grid item md={4} xs={6} display="flex">
             <Card
               sx={{
                 flex: 1,
@@ -128,7 +138,27 @@ const App = () => {
             </Card>
           </Grid>
 
-          <Grid item md={3} xs={6} display="flex">
+          <Grid item md={4} xs={6} display="flex">
+            <Card
+              sx={{
+                flex: 1,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <CardContent>
+                <Typography variant="h6" align="center">
+                  📏 Distancia 2
+                </Typography>
+                <Typography variant="h5" align="center" color="primary">
+                  {currentDistance2} cm
+                </Typography>
+              </CardContent>
+            </Card>
+          </Grid>
+
+          <Grid item md={4} xs={6} display="flex">
             <Card
               sx={{
                 flex: 1,
@@ -148,7 +178,7 @@ const App = () => {
             </Card>
           </Grid>
 
-          <Grid item md={3} xs={6} display="flex">
+          <Grid item md={6} xs={6} display="flex">
             <Card
               sx={{
                 flex: 1,
@@ -168,7 +198,7 @@ const App = () => {
             </Card>
           </Grid>
 
-          <Grid item md={3} xs={6} display="flex">
+          <Grid item md={6} xs={12} display="flex">
             <Card
               sx={{
                 flex: 1,
@@ -196,6 +226,7 @@ const App = () => {
 
       <Tabs value={tab} onChange={handleTabChange} centered>
         <Tab label="Distancia" />
+        <Tab label="Distancia2" />
         <Tab label="Temperatura" />
         <Tab label="Humedad" />
         <Tab label="Humo" />
@@ -208,11 +239,11 @@ const App = () => {
               <Typography variant="h6" gutterBottom>
                 Visual Actual - {getLabel()}
               </Typography>
-              {tab === 0 ? (
+              {tab === 0 || tab === 1 ? (
                 <TapeMeasure value={currentDistance} />
-              ) : tab === 1 ? (
-                <TemperatureThermometer value={currentTemperature} />
               ) : tab === 2 ? (
+                <TemperatureThermometer value={currentTemperature} />
+              ) : tab === 3 ? (
                 <HumidityGauge value={currentHumidity} />
               ) : (
                 <SmokeAlert value={currentSmoke} />
