@@ -24,9 +24,15 @@ Proyecto-IoT-MQTT/
 ├── Python/               
 │   └── python.py
 │
-├── Web/                  
+├── data-persistance/               
+│   └── db.py
+│   └── mqtt_ingestor.py
+│   └── scheme.sql
+│
+├── front-end/                  
 │   ├── index.html
-│   ├── app.js
+│   ├── src/
+│   │   ├── App.tsx
 │   └── style.css
 │
 └── .gitignore             
@@ -41,6 +47,7 @@ Proyecto-IoT-MQTT/
 * Mosquitto MQTT Broker
 * Arduino IDE
 * Navegador web
+* Node
 
 ### En Linux:
 
@@ -67,8 +74,11 @@ mosquitto -v
 | ----------------- | --------------------------------------------------------------------------- |
 | **MQTT Clients**  | Publican datos (sensores) desde Arduino usando comunicación serial + Python |
 | **Broker MQTT**   | Mosquitto actúa como servidor central para gestionar los mensajes           |
-| **Web/Desktop**   | Se suscriben a los temas MQTT para visualizar datos en tiempo real          |
+| **Web**           | Se suscriben a los temas MQTT para ver datos en tiempo real, React + TS     |
 | **Python Script** | Lee datos del puerto serial, los transforma y publica vía MQTT              |
+
+## Arquitectura
+![arquitectura](image.png)
 
 ## Resultados Obtenidos
 
@@ -77,11 +87,21 @@ mosquitto -v
 * Publicación correcta de datos usando MQTT.
 * Flujo de datos en tiempo real sin pérdidas evidentes.
 
+## Screenshots
+![alt text](image-1.png)
+![alt text](image-2.png)
+![alt text](image-3.png)
+![alt text](image-4.png)
+![alt text](image-5.png)
+
+### Responsive
+![alt text](image-6.png)
+![alt text](image-7.png)
+
 ## Posibles Mejoras
 
 * Integrar un sistema de alertas por umbral.
 * Controlar actuadores desde la interfaz.
-* Mejorar diseño responsivo de la interfaz Web.
 
 ## Capturas y Evidencias de Pruebas
 
