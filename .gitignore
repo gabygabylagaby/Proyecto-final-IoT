@@ -1,0 +1,46 @@
+# Archivos de Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.env
+*.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Archivos de log y bases de datos temporales
+*.log
+*.sqlite3
+
+# Archivos JSON temporales o de simulación
+*.json
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+
+# Archivos de configuración de IDEs
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Archivos de Arduino
+*.hex
+*.elf
+*.bin
+
+# Archivos del navegador/servidor local
+node_modules/
+dist/
+build/
+
+# Archivos generados por npm/yarn
+package-lock.json
+yarn.lock
+
+.env
+.git
