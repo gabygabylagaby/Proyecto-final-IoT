@@ -12,7 +12,7 @@ def on_connect(client, userdata, flags, rc):
     if rc == 0:
         print("Conectado exitosamente al broker MQTT")
     else:
-        print(f"⚠️ Error al conectar: código {rc}")
+        print(f"Error al conectar: código {rc}")
 
 client = mqtt.Client()
 client.on_connect = on_connect
@@ -25,9 +25,9 @@ try:
         humedad = random.randint(0, 100)
         payload = json.dumps({"humedad": humedad})
         client.publish(TOPIC_HUMEDAD, payload)
-        print(f"📡 Humedad publicada: {payload} en '{TOPIC_HUMEDAD}'")
+        print(f"Humedad publicada: {payload} en '{TOPIC_HUMEDAD}'")
         time.sleep(INTERVALO_SEGUNDOS)
 except KeyboardInterrupt:
-    print("⛔ Script detenido por el usuario.")
+    print("Script detenido por el usuario.")
     client.loop_stop()
     client.disconnect()
